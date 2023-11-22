@@ -1,7 +1,7 @@
 import sys
 import getch
 
-def evaluate(script):
+def eval(script):
 	script = "".join(filter(lambda x: x in ['.', ',', '[', ']', '<', '>', '+', '-'], list(script)))
 	chrmap = build_chrmap(script)
 
@@ -37,7 +37,7 @@ def build_chrmap(script):
 
 def main():
 	if len(sys.argv) == 2: 
-		with open(sys.argv[1], "r") as f: evaluate(f.read())
+		with open(sys.argv[1], "r") as f: eval(f.read())
 	else: print("Usage:", sys.argv[0], "<file path>")
 
 if __name__ == "__main__": main()
