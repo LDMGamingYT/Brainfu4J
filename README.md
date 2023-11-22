@@ -15,7 +15,3 @@ Pronounced brainfudge (the 4 is silent)
 | final     | Decrement address | -                   |
 | println   | Output            | .                   |
 | scanner   | Input             | ,                   |
-
-
-Thanks to @pocmo for the Brainfuck compiler
-https://github.com/pocmo/Python-Brainfuck
