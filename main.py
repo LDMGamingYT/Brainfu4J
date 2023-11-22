@@ -1,7 +1,7 @@
 import sys
 import getch
 
-def process(script):
+def process(script:str):
 	replacements = {
 		"public": "[",
 		"private": "]",
@@ -18,14 +18,14 @@ def process(script):
 
 	return "".join(filter(lambda x: x in ['.', ',', '[', ']', '<', '>', '+', '-'], list(script)))
 
-def verify(script):
+def verify(script:str):
 	for token in ["public", "private", "class", "interface", "static", "final", "println", "scanner"]:
 		if token in script:
 			return True
 	return False
 
 
-def eval(script):
+def eval(script:str):
 	script = process(script)
 	chrmap = build_chrmap(script)
 
@@ -48,7 +48,7 @@ def eval(script):
 			
 		byte += 1
 
-def build_chrmap(script):
+def build_chrmap(script:str):
 	tmp_struct, chrmap = [], {}
 
 	for pos, cmd in enumerate(script):
