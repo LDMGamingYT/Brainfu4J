@@ -1,5 +1,7 @@
 # Examples
 
+Feel free to add more examples! Just create a PR.
+
 ## helloworld.bf
 Regular Brainfuck program that prints Hello, World! to stdout
 
