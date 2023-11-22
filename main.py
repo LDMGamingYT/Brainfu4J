@@ -18,6 +18,12 @@ def process(script):
 
 	return "".join(filter(lambda x: x in ['.', ',', '[', ']', '<', '>', '+', '-'], list(script)))
 
+def verify(script):
+	for token in ["public", "private", "class", "interface", "static", "final", "println", "scanner"]:
+		if token in script:
+			return True
+	return False
+
 
 def eval(script):
 	script = process(script)
@@ -54,8 +60,10 @@ def build_chrmap(script):
 	return chrmap
 
 def main():
-	if len(sys.argv) == 2: 
-		with open(sys.argv[1], "r") as f: eval(f.read())
-	else: print("Usage:", sys.argv[0], "<file path>")
+	if len(sys.argv) != 2: print("Usage:", sys.argv[0], "<file path>"); exit()
+	with open(sys.argv[1], "r") as f: 
+		script = f.read()
+		if not verify(script): print(f"'{sys.argv[1]}' does not appear to be a valid Brainfu4J file!")
+		eval(script)
 
 if __name__ == "__main__": main()
