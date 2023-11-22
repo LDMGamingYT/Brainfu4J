@@ -1,8 +1,26 @@
 import sys
 import getch
 
+def process(script):
+	replacements = {
+		"public": "[",
+		"private": "]",
+		"class": "<",
+		"interface": ">",
+		"static": "+",
+		"final": "-",
+		"println": ".",
+		"scanner": ","
+	}
+
+	for literal, replacement in replacements.items():
+		script = script.replace(literal, replacement)
+
+	return "".join(filter(lambda x: x in ['.', ',', '[', ']', '<', '>', '+', '-'], list(script)))
+
+
 def eval(script):
-	script = "".join(filter(lambda x: x in ['.', ',', '[', ']', '<', '>', '+', '-'], list(script)))
+	script = process(script)
 	chrmap = build_chrmap(script)
 
 	mem, byte, addr = [0], 0, 0
