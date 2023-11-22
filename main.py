@@ -60,10 +60,10 @@ def build_chrmap(script):
 	return chrmap
 
 def main():
-	if len(sys.argv) != 2: print("Usage:", sys.argv[0], "<file path>"); exit()
+	if len(sys.argv) != 2: print("Usage:", sys.argv[0], "<file path>"); exit(1)
 	with open(sys.argv[1], "r") as f: 
 		script = f.read()
-		if not verify(script): print(f"'{sys.argv[1]}' does not appear to be a valid Brainfu4J file!")
+		if not verify(script): print(f"'{sys.argv[1]}' does not appear to be a valid Brainfu4J file!"); sys.exit(2)
 		eval(script)
 
 if __name__ == "__main__": main()
