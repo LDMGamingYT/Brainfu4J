@@ -3,7 +3,7 @@
 Pronounced brainfudge (the 4 is silent)
 
 ## How to use
-Create a Brainfu4J file (follow example if needed) ending in `.bf`
+Create a Brainfu4J file (follow example if needed) ending in `.bfj`
 
 Then use this command in your terminal to execute the Brainfu4J script.
 ```
